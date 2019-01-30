@@ -1,20 +1,32 @@
+float c,h;
+
 public void setup()
 {
+	frameRate(500);
 	size(700,700);
+	int state = 0; 
+	float h = 0;
+	colorMode(HSB);
 }
+
 public void draw()
 {
-	background(180,200,200);
+	background(c,70,255);
 	sierpinski(25,675,650);
+	if(h>=255)
+		h=0;
+	else 
+		h++;
+	if(c<=0)
+		c=255;
+	else
+		c--;
 }
-public void mouseDragged()//optional
-{
 
-}
 public void sierpinski(int x, int y, int len) 
 {
-	if(len<=15){
-		fill(20,100,120);
+	if(len<=25){
+		fill(h,230,255);
 		triangle(x, y, x+len/2, y-len, x+len, y);
 	}
 	else{
